@@ -5,6 +5,7 @@ import { FindaAllProductListingsUseCase } from "../src/modules/products/use-case
 describe('Find all product listings',()=>{
     it('deve retornar todos os produtos',async ()=>{
         const productListingRepository = {
+            
             findAll: async () =>[
                 {
                 
@@ -18,10 +19,9 @@ describe('Find all product listings',()=>{
                 
             }  
         ]
-        }
-        as ProductListingRepository
-
-            const sut = new FindaAllProductListingsUseCase(
+        }as unknown as ProductListingRepository
+        
+        const sut = new FindaAllProductListingsUseCase(
                 productListingRepository
             )
 

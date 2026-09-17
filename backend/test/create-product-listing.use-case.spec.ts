@@ -2,11 +2,13 @@ import { ProductListingRepository } from "../src/modules/products/application/re
 import { ProductListing, ProductListingStatus } from "../src/modules/products/domain/entities/product-listing.entity.js";
 import { CreateProductListingUseCase } from "../src/modules/products/use-cases/create-product-listing.use-case.js";
 
+
 describe('CreateProductListingUseCase',()=>{
     it("deve criar um anuncio",async ()=>{
 
         const repository:ProductListingRepository ={
-            create: vi.fn()
+            create: vi.fn(),
+            findAll: vi.fn()
         }
         const useCase = new CreateProductListingUseCase(repository);
 
@@ -25,7 +27,8 @@ describe('CreateProductListingUseCase',()=>{
     it('deve salvar o anuncio no repositorio',async ()=>{
 
         const repository = {
-            create: vi.fn()
+            create: vi.fn(),
+            findAll: vi.fn()
         }
         const useCase = new CreateProductListingUseCase(repository);
 
